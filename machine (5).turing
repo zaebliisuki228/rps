@@ -1,0 +1,64 @@
+{
+  "alphabet": ["a", "b", "X", "Y", "N", "λ"],
+  "states": {
+    "q0": {
+      "a": "X R q_findb",
+      "b": "X R q_finda",
+      "X": "X R q0",
+      "λ": "λ L q_check",
+      "Y": "N N !",
+      "N": "N N !"
+    },
+    "q_findb": {
+      "a": "a R q_findb",
+      "b": "X L q_back",
+      "X": "X R q_findb",
+      "λ": "λ L q_res_Y",
+      "Y": "N N !",
+      "N": "N N !"
+    },
+    "q_finda": {
+      "a": "X L q_back",
+      "b": "b R q_finda",
+      "X": "X R q_finda",
+      "λ": "λ L q_res_N",
+      "Y": "N N !",
+      "N": "N N !"
+    },
+    "q_back": {
+      "a": "a L q_back",
+      "b": "b L q_back",
+      "X": "X L q_back",
+      "λ": "X R q0",
+      "Y": "N N !",
+      "N": "N N !"
+    },
+    "q_check": {
+      "a": "Y L q_res_Y",
+      "b": "N L q_res_N",
+      "X": "X R q_check",
+      "λ": "λ L q_res_N",
+      "Y": "N N !",
+      "N": "N N !"
+    },
+    "q_res_Y": {
+      "a": "λ L q_res_Y",
+      "b": "λ L q_res_Y",
+      "X": "λ L q_res_Y",
+      "Y": "Y N !",
+      "N": "λ L q_res_Y",
+      "λ": "Y N !"
+    },
+    "q_res_N": {
+      "a": "λ L q_res_N",
+      "b": "λ L q_res_N",
+      "X": "λ L q_res_N",
+      "Y": "λ L q_res_N",
+      "N": "N N !",
+      "λ": "N N !"
+    }
+  },
+  "initial_state": "q0",
+  "initial_tape": "aabb",
+  "blank_symbol": "λ"
+}
