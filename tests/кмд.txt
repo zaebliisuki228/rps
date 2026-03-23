@@ -1,0 +1,4 @@
+
+cd C:\Users\Admin\Desktop\рпс3\tests
+
+python test_database.py
